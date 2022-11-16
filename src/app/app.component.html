@@ -1,14 +1,4 @@
 <h1>Калькулятор</h1>
-<h2>Выбрать тип операции:</h2>
-<select
-class="custom-select mb-3"
-(change)="changeOperation($event)"
->
-<option value="">Тип операции</option>
-<option *ngFor="let op of Operation">
-  {{ op }}
-</option>
-</select>
 <h2>Выбрать систему счисления:</h2>
 <select
 class="custom-select mb-3"
@@ -21,6 +11,15 @@ class="custom-select mb-3"
 </select>
 <h2>Введите первое значение:</h2>
 <input type="text" name="param1" class="form-control size" id="param1" (change)="changeParam1($event)">
+<select
+class="custom-select mb-3"
+(change)="changeOperation($event)"
+>
+<option value="">Тип операции</option>
+<option *ngFor="let op of Operation">
+  {{ op }}
+</option>
+</select>
 <h2>Введите второе значение:</h2>
 <input type="text" name="param2" class="form-control size" id="param2" (change)="changeParam2($event)">
 <br><button class="btn btn-danger ml-2 " (click)="getResult(param1_val, param2_val, param3_val)">Результат</button>
