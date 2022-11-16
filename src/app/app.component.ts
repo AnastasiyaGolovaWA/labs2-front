@@ -12,14 +12,22 @@ export class AppComponent {
   title = 'labs2-front';
   result: any
   Operation: any = ['+', '-', '*', '/'];
+  System: any = ['2', '8', '10', '16'];
   operation_type: string = ''
   param1_val: string = ''
   param2_val: string = ''
+  param3_val: string = ''
 
   changeOperation(e: any): string {
     console.log(e.target.value)
     this.operation_type = e.target.value
     return this.operation_type
+  }
+
+  changeSystem(e: any): string {
+    console.log(e.target.value)
+    this.param3_val = e.target.value
+    return this.param3_val
   }
 
   changeParam1(e: any): string {
@@ -34,18 +42,18 @@ export class AppComponent {
     return this.param2_val
   }
 
-  getResult(param1: string, param2: string) {
+  getResult(param1: string, param2: string, param3: string) {
     if (this.operation_type == '+') {
-      this.appService.addition(param1, param2).subscribe(res => { this.result = res })
+      this.appService.addition(param1, param2, param3).subscribe(res => { this.result = res })
     }
     if (this.operation_type == '-') {
-      this.appService.subtraction(param1, param2).subscribe(res => { this.result = res })
+      this.appService.subtraction(param1, param2, param3).subscribe(res => { this.result = res })
     }
     if (this.operation_type == '*') {
-      this.appService.multiplication(param1, param2).subscribe(res => { this.result = res })
+      this.appService.multiplication(param1, param2, param3).subscribe(res => { this.result = res })
     }
     if (this.operation_type == '/') {
-      this.appService.division(param1, param2).subscribe(res => { this.result = res })
+      this.appService.division(param1, param2, param3).subscribe(res => { this.result = res })
     }
   }
 }
