@@ -10,9 +10,10 @@ class="custom-select mb-3"
 </option>
 </select>
 <h2>Введите первое значение:</h2>
-<input label="param1" value="param1">
+<input type="text" name="param1" class="form-control size" id="param1" (change)="changeParam1($event)">
 <h2>Введите второе значение:</h2>
-<button class="btn btn-danger ml-2 " (click)="getResult('0x152', '500')">Результат</button>
+<input type="text" name="param2" class="form-control size" id="param2" (change)="changeParam2($event)">
+<br><button class="btn btn-danger ml-2 " (click)="getResult(param1_val, param2_val)">Результат</button>
 <div class="result">
   <input type="text" value="{{result}}">
 </div>

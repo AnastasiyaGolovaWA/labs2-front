@@ -13,11 +13,25 @@ export class AppComponent {
   result: any
   Operation: any = ['+', '-', '*', '/'];
   operation_type: string = ''
+  param1_val: string = ''
+  param2_val: string = ''
 
   changeOperation(e: any): string {
     console.log(e.target.value)
     this.operation_type = e.target.value
     return this.operation_type
+  }
+
+  changeParam1(e: any): string {
+    console.log(e.target.value)
+    this.param1_val = e.target.value
+    return this.param1_val
+  }
+
+  changeParam2(e: any): string {
+    console.log(e.target.value)
+    this.param2_val = e.target.value
+    return this.param2_val
   }
 
   getResult(param1: string, param2: string) {
