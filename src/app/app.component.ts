@@ -17,6 +17,7 @@ export class AppComponent {
   param1_val: string = ''
   param2_val: string = ''
   param3_val: string = ''
+  pattern: any
 
   changeOperation(e: any): string {
     console.log(e.target.value)
@@ -24,27 +25,42 @@ export class AppComponent {
     return this.operation_type
   }
 
-  keyPressParam1(event: any) {
-    let inputChar = String.fromCharCode(event.charCode);
+  getPatternParam1() {
     if (this.param3_val == '2') {
-      if (!/[0-1]/.test(inputChar)) {
-        event.preventDefault();
-      }
-    }
-    if (this.param3_val == '10') {
-      if (!/[0-9]/.test(inputChar)) {
-        event.preventDefault();
-      }
+      this.pattern = /[0-1]/
     }
     if (this.param3_val == '8') {
-      if (!/[0-7]/.test(inputChar)) {
-        event.preventDefault();
-      }
+      this.pattern = /[0-7]/
     }
     if (this.param3_val == '16') {
-      if (!/[0-9A-F]/.test(inputChar)) {
-        event.preventDefault();
-      }
+      this.pattern = /[0-9A-F]/
+    }
+    if (this.param3_val == '10') {
+      this.pattern = /[0-9]/
+    }
+    return this.pattern
+  }
+
+  getPatternParam2() {
+    if (this.param3_val == '2') {
+      this.pattern = /[0-1]/
+    }
+    if (this.param3_val == '8') {
+      this.pattern = /[0-7]/
+    }
+    if (this.param3_val == '16') {
+      this.pattern = /[0-9A-F]/
+    }
+    if (this.param3_val == '10') {
+      this.pattern = /[0-9]/
+    }
+    return this.pattern
+  }
+
+  keyPress(event: KeyboardEvent, pattern: any) {
+    const inputChar = String.fromCharCode(event.charCode);
+    if (!pattern.test(inputChar)) {
+      event.preventDefault();
     }
   }
 
