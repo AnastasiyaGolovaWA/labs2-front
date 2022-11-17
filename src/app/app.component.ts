@@ -24,10 +24,25 @@ export class AppComponent {
     return this.operation_type
   }
 
-  keyPress(event: any) {
+  keyPressParam1(event: any) {
     let inputChar = String.fromCharCode(event.charCode);
     if (this.param3_val == '2') {
       if (!/[0-1]/.test(inputChar)) {
+        event.preventDefault();
+      }
+    }
+    if (this.param3_val == '10') {
+      if (!/[0-9]/.test(inputChar)) {
+        event.preventDefault();
+      }
+    }
+    if (this.param3_val == '8') {
+      if (!/[0-7]/.test(inputChar)) {
+        event.preventDefault();
+      }
+    }
+    if (this.param3_val == '16') {
+      if (!/[0-9A-F]/.test(inputChar)) {
         event.preventDefault();
       }
     }
