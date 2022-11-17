@@ -54,9 +54,6 @@ export class AppComponent {
     if (this.param3_val == '10') {
       this.pattern = /[0-9]/
     }
-    if (this.operation_type == '/') {
-      console.log(this.pattern.multiline)
-    }
     return this.pattern
   }
 
