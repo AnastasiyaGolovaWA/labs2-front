@@ -17,7 +17,7 @@ export class AppComponent {
   param1_val: string = ''
   param2_val: string = ''
   param3_val: string = ''
-  pattern: any
+  pattern: RegExp = /[]/
 
   changeOperation(e: any): string {
     console.log(e.target.value)
@@ -53,6 +53,9 @@ export class AppComponent {
     }
     if (this.param3_val == '10') {
       this.pattern = /[0-9]/
+    }
+    if (this.operation_type == '/') {
+      console.log(this.pattern.multiline)
     }
     return this.pattern
   }
