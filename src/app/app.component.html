@@ -11,6 +11,8 @@ class="custom-select mb-3"
 </select>
 <h2>Введите первое значение:</h2>
 <input type="text" name="param1" class="form-control size" id="param1" (change)="changeParam1($event)">
+<input type="text" (keypress)="keyPress($event)">
+
 <select
 class="custom-select mb-3"
 (change)="changeOperation($event)"

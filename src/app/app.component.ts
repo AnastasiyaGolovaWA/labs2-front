@@ -24,6 +24,15 @@ export class AppComponent {
     return this.operation_type
   }
 
+  keyPress(event: any) {
+    let inputChar = String.fromCharCode(event.charCode);
+    if (this.param3_val == '2') {
+      if (!/[0-1]/.test(inputChar)) {
+        event.preventDefault();
+      }
+    }
+  }
+
   changeSystem(e: any): string {
     console.log(e.target.value)
     this.param3_val = e.target.value
